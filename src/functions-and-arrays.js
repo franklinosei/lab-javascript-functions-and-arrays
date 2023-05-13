@@ -53,13 +53,37 @@ function sumNumbers(numbersArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbersArray) {
+  let sum = 0;
+
+  for (let element of numbersArray) {
+    if (typeof element === "string") {
+      console.log(`${element} ==> ${typeof element}`);
+      sum += element.length;
+    } else if (typeof element === "boolean") {
+      continue
+    } else if (typeof element === "object") {
+      return "Unsupported data type ...";
+    } else {
+      sum += element;
+    }
+  }
+
+  return sum;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersArray) {
+  if (numbersArray.length === 0) {
+    return null;
+  }
+
+  let sum = sumNumbers(numbersArray);
+  return sum / numbersArray.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -75,7 +99,17 @@ const wordsArr = [
   "palace",
 ];
 
-function averageWordLength() {}
+function averageWordLength(strArray) {
+  if (strArray.length === 0) {
+    return null;
+  }
+
+  let sum = 0;
+  strArray.forEach(function (element) {
+    sum += element.length;
+  });
+  return sum / strArray.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
