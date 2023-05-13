@@ -52,16 +52,18 @@ function sumNumbers(numbersArray) {
   return sum;
 }
 
+// TODO:
 // Iteration #3.1 Bonus:
 function sum(numbersArray) {
   let sum = 0;
 
   for (let element of numbersArray) {
     if (typeof element === "string") {
-      console.log(`${element} ==> ${typeof element}`);
       sum += element.length;
-    } else if (typeof element === "boolean") {
-      continue
+    } else if (element === true) {
+      sum += 1;
+    } else if (element === false) {
+      sum += 0;
     } else if (typeof element === "object") {
       return "Unsupported data type ...";
     } else {
@@ -112,7 +114,23 @@ function averageWordLength(strArray) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(strArray) {
+  if (strArray.length === 0) {
+    return null;
+  }
+
+  for (let i = 0; i < strArray.length; i++) {
+    if (typeof strArray[i] === "string") {
+      strArray[i] = strArray[i].length;
+    } else if (strArray[i] === true) {
+      strArray[i] = 1;
+    } else if (strArray[i] === false) {
+      strArray[i] = 0;
+    }
+  }
+
+  return averageNumbers(strArray);
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -129,7 +147,24 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+// TODO:
+function uniquifyArray(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let uniqueArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueArr.includes(arr[i])) {
+      continue;
+    } else {
+      uniqueArr.push(arr[i]);
+    }
+  }
+
+  return uniqueArr
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -143,7 +178,12 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, searchWord) {
+  if (arr.length === 0) {
+    return null;
+  }
+  return arr.includes(searchWord);
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -160,7 +200,21 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, countWord) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  let count = 0;
+
+  for (let element of arr) {
+    if (element === countWord) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
 
 // Iteration #8: Bonus
 const matrix = [
